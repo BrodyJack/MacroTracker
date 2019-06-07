@@ -1,9 +1,14 @@
 const config = require('./config/config');
+const routes = require('./routes');
+const express = require('express');
+const http = require('http');
 
-const express = require('express')
-const app = express()
+const app = express();
+app.server = http.createServer();
+app.disable('x-powered-by');
+
 const port = config.port;
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use('/', routes());
 
-app.listen(port, () => console.log(`Server started on port ${port}!`))
+app.listen(port, () => console.log(`Server started on port ${port}!`));
