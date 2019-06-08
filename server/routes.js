@@ -5,7 +5,7 @@ const { insertFood } = require('./controllers/foodItem.controller');
 
 module.exports = () => {
   api.post('/api/foodItem', (req, res) => {
-    insertFood(req, res);
+    insertFoodItems(req, res);
   });
   // base route - return version
   api.get('/api', (req, res) => {
