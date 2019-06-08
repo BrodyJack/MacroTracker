@@ -1,4 +1,4 @@
-const foodItemService = require('./services/foodItem.service.js');
+const foodItemService = require('../services/foodItem.service.js');
 
 module.exports = {
   insertFoodItems(req, res) {
