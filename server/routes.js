@@ -1,7 +1,7 @@
 const express = require('express');
 const { name, version } = require('../package.json');
 const api = express.Router();
-const { insertFood } = require('./controllers/foodItem.controller');
+const { insertFoodItems } = require('./controllers/foodItem.controller');
 
 module.exports = () => {
   api.post('/api/foodItem', (req, res) => {
