@@ -6,7 +6,7 @@ module.exports = {
     foodItemService
       .insertFoodItems(foodItems)
       .then(response => {
-        res.status(200).send('Food(s) successfully saved');
+        res.status(200).json('Food(s) successfully saved');
       })
       .catch(err => {
         console.log(err);
