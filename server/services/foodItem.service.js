@@ -1,5 +1,5 @@
 // in-memory array for saving food items
-const savedFoodItems = [];
+let savedFoodItems = [];
 
 module.exports = {
   insertFoodItems: foodItems => {
@@ -8,7 +8,7 @@ module.exports = {
     // does an actual db insert
     return new Promise((resolve, reject) => {
       try {
-        savedFoodItems.concat(foodItems);
+        savedFoodItems = savedFoodItems.concat(foodItems);
         resolve('Food(s) successfully saved');
       } catch (e) {
         reject(e);
