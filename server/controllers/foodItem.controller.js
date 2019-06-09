@@ -9,8 +9,21 @@ module.exports = {
         res.status(200).json('Food(s) successfully saved');
       })
       .catch(err => {
-        console.log(err);
-        res.status(500).send(err);
+        console.error(err);
+        res.status(500).json(err);
+      });
+  },
+  getFoodItems(req, res) {
+    const pageNumber = req.query.pageNumber;
+    const recordsPerPage = req.query.recordsPerPage;
+    foodItemService
+      .getFoodItems(pageNumber, recordsPerPage)
+      .then(fetchedItems => {
+        res.status(200).json(fetchedItems);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json(err);
       });
   }
 };
