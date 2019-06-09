@@ -19,7 +19,11 @@ module.exports = {
     foodItemService
       .getFoodItems(pageNumber, recordsPerPage)
       .then(fetchedItems => {
-        res.status(200).json(fetchedItems);
+        if (fetchedItems.length > 0) {
+          res.status(200).json(fetchedItems);
+        } else {
+          res.status(404).json('Requested item(s) not found');
+        }
       })
       .catch(err => {
         console.error(err);
